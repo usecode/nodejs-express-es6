@@ -1,4 +1,5 @@
 module.exports = {
   'secret': 'usecodelovecoding',
-  'database': 'localhost/apiDatabase'
+  'database': 'localhost/apiDatabase',
+  'port': 3000
 };
