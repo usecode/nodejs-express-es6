@@ -59,12 +59,12 @@ apiRoutes.post('/authenticate', (req, res) => {
 });
 
 //middleware verify a token
-apiRoutes.use(function(req, res, next) {
+apiRoutes.use((req, res, next) => {
   // check header or url parameters or post parameters for token
   var token = req.body.token || req.query.token || req.headers['x-access-token'];
 
   if (token) {
-    jwt.verify(token, app.get('superSecret'), function(err, decoded) {
+    jwt.verify(token, app.get('superSecret'), (err, decoded) => {
       if (err) {
         return res.json({ success: false, message: 'Failed to authenticate token.' });
       } else {
@@ -88,7 +88,7 @@ apiRoutes.get('/', (req, res) => {
   });
 });
 
-apiRoutes.put('/user', function(req, res) {
+apiRoutes.put('/user', (req, res) => {
   const name = req.body.user;
   const password = req.body.password;
 
